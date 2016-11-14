@@ -21,11 +21,15 @@ train_xycount = Counter(tuple(i) for i in train_xylist)
 print (train_ycount)
 # print(train_xycount)
 
-emissiondict = {}
-for key in train_xycount:
-	emission = train_xycount[key]/train_ycount[key[1]]
-	emissiondict[key] = emission
-# print (emissiondict)
+def emission(train_xycount,train_ycount):
+
+	emissiondict = {}
+	for key in train_xycount:
+		emission = train_xycount[key]/train_ycount[key[1]]
+		emissiondict[key] = emission
+	return (emissiondict)
+
+emissiondict = emission(train_xycount,train_ycount)
 
 test = open('EN/dev.in', encoding = "utf8")
 
@@ -59,3 +63,4 @@ print (train_ycount)
 
 
 #"Hello testing number 2"
+
