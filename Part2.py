@@ -3,7 +3,7 @@ from collections import Counter
 from collections import namedtuple
 
 train = open('train', encoding = "utf8")
-
+test
 train_xlist=[]
 train_ylist=[]
 train_xylist=[]
