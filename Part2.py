@@ -3,7 +3,7 @@ from collections import Counter
 from collections import namedtuple
 
 train = open('train', encoding = "utf8")
-test
+
 train_xlist=[]
 train_ylist=[]
 train_xylist=[]
@@ -18,7 +18,7 @@ train_xcount = Counter(train_xlist)
 train_ycount = Counter(train_ylist)
 train_xycount = Counter(tuple(i) for i in train_xylist)
 # print (train_xcount)
-print (train_ycount)
+# print (train_ycount)
 # print(train_xycount)
 
 emissiondict = {}
@@ -36,13 +36,5 @@ test = open('dev.in', encoding = "utf8")
 # 		if line[0] not in train_xcount:
 # 			emission = 1/
 
-# a={(',','O'):424}
-
-# print (a[(',','O')])
-# for k1,k2 in a:
-# 	print (k2)
-
-#a=('1','2')
-#print (a[0])
 
 
