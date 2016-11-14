@@ -4,10 +4,6 @@ from collections import namedtuple
 
 train = open('train', encoding = "utf8")
 test
-
-"Wen Xiang Made a second commit"
-
-
 train_xlist=[]
 train_ylist=[]
 train_xylist=[]
