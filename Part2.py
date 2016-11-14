@@ -6,6 +6,7 @@ train = open('train', encoding = "utf8")
 test
 
 "Wen Xiang Made a second commit"
+"Ivan made a third commit"
 
 
 train_xlist=[]
