@@ -67,6 +67,8 @@ for words in test:
 
 total_predicted_entities = len(predicted_entities)
 
+####=============Scoring================###
+
 gold_entities = []
 
 for lines in gold:
@@ -81,6 +83,7 @@ total_correct_predictions = 0
 for prediction in predicted_entities:
 	    if prediction == gold_entities[predicted_entities.index(prediction)]:
 	    	total_correct_predictions += 1
+
 
 precision = total_correct_predictions/total_predicted_entities
 print ('Precision = %f' % (precision))
