@@ -18,49 +18,45 @@ train_xcount = Counter(train_xlist)
 train_ycount = Counter(train_ylist)
 train_xycount = Counter(tuple(i) for i in train_xylist)
 # print (train_xcount)
-print (train_ycount)
+# print (train_ycount)
 # print(train_xycount)
 
-def emission(train_xycount,train_ycount):
+#def emission(train_xycount,train_ycount):
 
-	emissiondict = {}
-	for key in train_xycount:
-		emission = train_xycount[key]/train_ycount[key[1]]
-		emissiondict[key] = emission
-	return (emissiondict)
+emissiondict = {}
+for key in train_xycount:
+	emission = train_xycount[key]/train_ycount[key[1]]
+	emissiondict[key] = emission
+print (emissiondict)
+#return (emissiondict)
 
-emissiondict = emission(train_xycount,train_ycount)
+#print (emission(train_xycount,train_ycount))
 
 test = open('EN/dev.in', encoding = "utf8")
 
 for words in test: 	
   	x=words.split()
-  	if line!=[]:
-  		if line[0] not in train_xcount:
+  	if x!=[]:
+  		if x[0] not in train_xcount:
   			for y in train_ycount:
   				emission = 1/(train_ycount[y]+1)
   				train_ycount[y] += 1
-  				emissiondict[(x,y)] = emission
-  		if line[0] in train_xcount:
-  			
+  				emissiondict[(x[0],y)] = emission
+  		if x[0] in train_xcount:
+  			for key in train_xycount:
+  				if x[0]==key[0]:
+  					emission = train_xycount[key]/(train_ycount[key[1]]+1)
+  					emissiondict[key] = emission
+  					
+print (emissiondict)
 
-#print emissiondict[('ivan','testing')]
+# a={('1','2'):424}
 
+# b='1'
 
-for y in train_ycount:
-	train_ycount[y]+=1
+# for key in a:
+# 	print (key[1])
+# 	if b==key[0]:
+#  		print (b)
 
-print (train_ycount)
-
-# a={(',','O'):424}
-
-# print (a[(',','O')])
-# for k1,k2 in a:
-# 	print (k2)
-
-#a=('1','2')
-#print (a[0])
-
-
-#"Hello testing number 2"
 
