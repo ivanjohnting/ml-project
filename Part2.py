@@ -1,15 +1,19 @@
 import re
 from collections import Counter
 from collections import namedtuple
+from operator import itemgetter
 
 train = open('EN/train', encoding = "utf8")
+test = open('EN/dev.in', encoding = "utf8")
+gold = open('EN/dev.out', encoding = "utf8")
+
+####=============Estimate Emission Parameters from Training Set================###
 
 train_xlist=[]
 train_ylist=[]
 train_xylist=[]
 for lines in train:
 	line=lines.split()
-	#print (line)
 	if line!=[]:
 		train_xlist.append(line[0])
 		train_ylist.append(line[1])
@@ -27,12 +31,10 @@ emissiondict = {}
 for key in train_xycount:
 	emission = train_xycount[key]/train_ycount[key[1]]
 	emissiondict[key] = emission
-print (emissiondict)
+
 #return (emissiondict)
 
-#print (emission(train_xycount,train_ycount))
-
-test = open('EN/dev.in', encoding = "utf8")
+####=============Modified Emission Parameters================###
 
 for words in test: 	
   	x=words.split()
@@ -40,23 +42,53 @@ for words in test:
   		if x[0] not in train_xcount:
   			for y in train_ycount:
   				emission = 1/(train_ycount[y]+1)
-  				train_ycount[y] += 1
   				emissiondict[(x[0],y)] = emission
   		if x[0] in train_xcount:
   			for key in train_xycount:
-  				if x[0]==key[0]:
+  				if x[0] == key[0]:
   					emission = train_xycount[key]/(train_ycount[key[1]]+1)
   					emissiondict[key] = emission
-  					
-print (emissiondict)
 
-# a={('1','2'):424}
+####=============Simple sentiment analysis system================###
 
-# b='1'
+test.seek(0)
 
-# for key in a:
-# 	print (key[1])
-# 	if b==key[0]:
-#  		print (b)
+predicted_entities=[]
+
+for words in test:
+	findmax=[]
+	x=words.split()
+	if x!=[]:
+  		for key in emissiondict:
+  			if x[0] == key[0]:
+  				findmax.append((key[1],emissiondict[key]))
+  		ystar = max(findmax,key=itemgetter(1))[0]
+  		predicted_entities.append(ystar)
+
+total_predicted_entities = len(predicted_entities)
+
+gold_entities = []
+
+for lines in gold:
+	line = lines.split()
+	if line!=[]:
+		gold_entities.append(line[1])
+
+total_gold_entities = len(gold_entities)
+
+total_correct_predictions = 0
+
+for prediction in predicted_entities:
+	    if prediction == gold_entities[predicted_entities.index(prediction)]:
+	    	total_correct_predictions += 1
+
+precision = total_correct_predictions/total_predicted_entities
+print ('Precision = %f' % (precision))
+
+recall = total_correct_predictions/total_gold_entities
+print ('Recall = %f' % (recall))
+
+F = 2/(1/precision + 1/recall)
+print ('F score = %f' % (F))
 
 
