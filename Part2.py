@@ -40,7 +40,7 @@ for words in test:
   			for y in train_ycount:
   				emission = 1/(train_ycount[y]+1)
   				train_ycount[y] += 1
-  				emissiondict[(x,y)] = emission
+  				emissiondict[(x,y)] = emission 		#Shouldn't it be line[0]?
   		if line[0] in train_xcount:
   			
 
