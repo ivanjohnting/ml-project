@@ -44,9 +44,7 @@ def training_emission(train):
 train_xcount,train_ycount,train_xycount = training_emission(train)
 
 
-f = open('test.txt', 'w')
-data = str(train_xycount)
-f.write(data)
+
 
 
 
@@ -58,78 +56,87 @@ def emission(train_xycount,train_ycount):
 		emissiondict[key] = emission
 	return (emissiondict)
 
-# emissiondict = emission(train_xycount,train_ycount)
+emissiondict = emission(train_xycount,train_ycount)
 
 
-# print(emissiondict)
 
-
+f = open('test.txt', 'w')
+data = str(emissiondict)
+f.write(data)
 
 
 
 ################# Getting Rec and Rec - START  #################
 
-# y_star = []
-# list1 = []
+y_star = []
+list1 = []
+list2 = []
 
-# count = 0
-# count1 = 0
+count = 0
+count1 = 0
+count2 = 0
 
-# for y in train_ycount:
-# 	list1.append(emissiondict[("UNK123!@#",y)])
-# Unk = max(list1)
+for y in train_ycount:
+	list1.append(emissiondict[("UNK123!@#",y)])
+	list2.append(y)
 
-# for words in test:
-# 	x = words.split()
+pos = list1.index(max(list1))
+yy_unk = list2[pos]
 
-# 	if x != []:
-# 		list1 = []
-# 		count += 1
 
-# 		for key,value in emissiondict:
-# 			if x == key:
-# 				list1.append(emissiondict[(key,value)])
-# 				count1 += 1
+for words in test:
+	x = words.split()
 
-# 		if list1 == []:
-# 			list1 =[Unk]
+	if x != []:
 
-# 		y_star.append(max(list1))
+		list1 = []
+		list2 = []
 
-# print(count,count1)
-# print(y_star)
-# print(len(y_star))
-# print(len(emissiondict))
+		for key,value in emissiondict:
+			if x[0] == key:
+				prob = emissiondict[(key,value)]
+				list1.append(prob)
+				list2.append([key,value])
+				count += 1		
+
+		if list1 == []:
+			yy = yy_unk
+			count1 += 1
+		else:
+			pos = list1.index(max(list1))
+			yy = list2[pos][1]
+			count2 += 1
+
+		y_star.append(yy)
+
+
+gold_label = []
+
+for words in gold:
+	x = words.split()
+
+	if x != []:
+		yy = x[1]
+		gold_label.append(yy)
+
+
+right = set(y_star) & set(gold_label)
+
+print(len(right))
+
+
+print(count,count1,count2)
+print(y_star)
+print(len(y_star))
+
+
+from evalResult import get_predicted
+
+
+
 
 
 ################# Getting Rec and Rec - END  #################
 
-
-
-
-################ NOT SURE ##################
-
-# test.seek(0)
-
-# predicted_entities=[]
-
-# for words in test:
-# 	findmax=[]
-# 	x = words.split()
-# 	if x!=[]:
-#   		for key in emissiondict:
-#   			if x[0] == key[0]:
-#   				findmax.append((key[1],emissiondict[key]))
-#   		ystar = max(findmax,key=itemgetter(1))[0]
-#   		predicted_entities.append(ystar)
-
-# total_predicted_entities = len(predicted_entities)
-
-
-# print(emissiondict)
-
-
-# if x[0] not in train_xcount:
-#     emiss = emissiondict[("UNK123!@#",y)]
     
   		
