@@ -111,6 +111,7 @@ for words in test:
 
 
 gold_label = []
+count4 = 0
 
 for words in gold:
 	x = words.split()
@@ -118,22 +119,33 @@ for words in gold:
 	if x != []:
 		yy = x[1]
 		gold_label.append(yy)
+		if yy != 'O':
+			count4 += 1
 
 
-right = set(y_star) & set(gold_label)
-
-print(len(right))
+right_set = set(y_star) & set(gold_label)
+right = len(right_set)
+print(right)
 
 
 print(count,count1,count2)
 print(y_star)
 print(len(y_star))
 
-
-from evalResult import get_predicted
-
+print(count1+count2,len(gold_label))
 
 
+# from evalResult import get_predicted
+
+
+recall = right/count2
+print('recall',recall)
+
+prec = right/count4
+print('prec',prec)
+
+F = 2/( (1/recall)+(1/prec))
+print('F',F)
 
 
 ################# Getting Rec and Rec - END  #################
