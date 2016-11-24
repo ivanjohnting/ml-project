@@ -54,7 +54,6 @@ for words in test:
 test.seek(0)
 
 predicted_entities=[]
->>>>>>> 17a64792920922ae8aa6b82e512643c43710e64b
 
 for words in test:
 	findmax=[]
