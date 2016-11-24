@@ -123,19 +123,35 @@ for words in gold:
 			count4 += 1
 
 
+
+# from evalResult import get_predicted
+# ans = get_predicted(y_star)
+# print(ans)
+
+
+
+# print("Total Correct Prediction:",str(total_correct_predictions))
+
+
+
+
+
+
+
+
 right_set = set(y_star) & set(gold_label)
 right = len(right_set)
 print(right)
 
 
 print(count,count1,count2)
-print(y_star)
-print(len(y_star))
+print( "y* :",y_star)
+print("Length of y*:" , len(y_star))
 
 print(count1+count2,len(gold_label))
 
 
-# from evalResult import get_predicted
+
 
 
 recall = right/count2
@@ -149,6 +165,9 @@ print('F',F)
 
 
 ################# Getting Rec and Rec - END  #################
+
+
+
 
     
   		
