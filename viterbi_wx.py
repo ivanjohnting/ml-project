@@ -57,6 +57,7 @@ def viterbi(emission_dict,transmission_dict,train_ycount,test):
 
 	order = []
 	order = sorted(train_ycount.keys())
+	order.reverse()
 	print(order)
 
 
@@ -122,7 +123,7 @@ def viterbi(emission_dict,transmission_dict,train_ycount,test):
 
 
 
-		else: 	#Do End theb Initialize
+		else: 	#Do End then Initialize
 			list2 = []
 			for i in current_state:
 				a = transmission_dict[i,end]

@@ -325,13 +325,13 @@ on B-neutral
 web I-neutral
 http://t.co/ud9nHNuz O
 
-is I-positive
-still I-positive
-half I-positive
-clueless I-positive
-about I-positive
-twitter I-positive
-haha I-positive
+is I-neutral
+still I-neutral
+half I-neutral
+clueless I-neutral
+about I-neutral
+twitter I-neutral
+haha I-neutral
 
 Twitter I-positive
 Surrenders I-positive
@@ -1323,8 +1323,8 @@ be I-neutral
 largest I-neutral
 discoun O
 ... O
-http://bit.ly/fkLHXe O
-supermarket B-neutral
+http://bit.ly/fkLHXe B-neutral
+supermarket I-neutral
 
 New I-positive
 @TechCrunch I-positive
@@ -1410,8 +1410,8 @@ is I-positive
 like I-positive
 a O
 temple O
-of O
-food B-neutral
+of B-neutral
+food I-neutral
 
 â I-positive
 Sometimes I-positive
@@ -1894,9 +1894,9 @@ any I-neutral
 online I-neutral
 tips I-neutral
 how I-neutral
-to O
-install O
-:) B-neutral
+to I-neutral
+install I-neutral
+:) I-neutral
 
 played I-neutral
 a I-neutral
@@ -1921,8 +1921,8 @@ SD O
 truly O
 is O
 a O
-masterpiece O
-:D B-neutral
+masterpiece B-neutral
+:D I-neutral
 
 We've O
 ( O
@@ -2985,8 +2985,8 @@ and O
 he B-neutral
 crossed I-neutral
 150 I-neutral
-kmph I-neutral
-.. I-neutral
+kmph O
+.. O
 
 July I-positive
 26th I-positive
@@ -3014,11 +3014,11 @@ Regular O
 Bootcamp O
 http://t.co/ivu2uj8 O
 Boise O
-Health B-positive
-Clubs I-positive
-& I-positive
-Gyms I-positive
-#coupon I-positive
+Health B-neutral
+Clubs I-neutral
+& I-neutral
+Gyms I-neutral
+#coupon I-neutral
 
 Get I-positive
 a I-positive
@@ -3881,7 +3881,7 @@ first I-neutral
 five I-neutral
 seasons." O
 AMAZING O
-!!! B-neutral
+!!! O
 
 @amnesty O
 #UN O
@@ -4714,8 +4714,8 @@ DIY O
 Knuckle O
 Clutch- O
 Alexander O
-McQueen O
-Inspired B-neutral
+McQueen B-neutral
+Inspired I-neutral
 
 An I-positive
 Open I-positive
@@ -5521,8 +5521,8 @@ dimension I-neutral
 ;P I-neutral
 http://bit.ly/cVFCbM O
 panasonic O
-led O
-tv B-neutral
+led B-neutral
+tv I-neutral
 
 The I-negative
 best I-negative
@@ -5858,9 +5858,9 @@ Thomas O
 is O
 his B-neutral
 most I-neutral
-admired O
-black O
-man B-neutral
+admired I-neutral
+black I-neutral
+man I-neutral
 
 Ploughshare O
 s: O
@@ -5907,7 +5907,7 @@ my O
 wife's O
 cooking O
 ... O
-!!! B-neutral
+!!! O
 
 GLOSSA's O
 yoshi O
@@ -6449,9 +6449,9 @@ Motta O
 is O
 not B-neutral
 an I-neutral
-ACM O
-player O
-:) B-neutral
+ACM I-neutral
+player I-neutral
+:) I-neutral
 
 @Mohammad_Syria I-positive
 please I-positive
@@ -7018,9 +7018,9 @@ Marc O
 , O
 among B-neutral
 other I-neutral
-administrative O
-administrativia O
-.... B-neutral
+administrative I-neutral
+administrativia I-neutral
+.... I-neutral
 
 Beliebers O
 and O
@@ -7684,8 +7684,8 @@ of O
 the O
 ( O
 secret O
-document O
-http B-neutral
+document B-neutral
+http I-neutral
 
 I I-positive
 liked I-positive
@@ -8108,17 +8108,17 @@ was B-neutral
 just I-neutral
 musing O
 tt O
-songs B-positive
-reminds I-positive
-us I-positive
-of I-positive
-different I-positive
-episodes- I-positive
-this I-positive
-one I-positive
-is I-positive
-of I-positive
-Canada I-positive
+songs B-neutral
+reminds I-neutral
+us I-neutral
+of I-neutral
+different I-neutral
+episodes- I-neutral
+this I-neutral
+one I-neutral
+is I-neutral
+of I-neutral
+Canada I-neutral
 
 sponsor I-positive
 http://t.co/FyTEHN4G I-positive
@@ -8178,12 +8178,12 @@ Canada I-neutral
 : O
 Haven O
 of O
-Choice B-positive
-for I-positive
-Iran's I-positive
-Elite O
-http://t.co/al3v08s4 O
-#Iran B-neutral
+Choice B-neutral
+for O
+Iran's B-neutral
+Elite I-neutral
+http://t.co/al3v08s4 I-neutral
+#Iran I-neutral
 
 #Africa I-positive
 Tuareg O

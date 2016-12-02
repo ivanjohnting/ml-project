@@ -71,7 +71,8 @@ def transmission(train_ycount,train_yycount):
 	# #initialize
 	for i in train_ycount:
 		for j in train_ycount:
-			transmission_dict[(i,j)] = 0
+			if i != "END123" and  j != "START123":
+				train_yycount[(i,j)] += 0
 
 	for (key,value) in train_yycount:
 		trans = train_yycount[(key,value)]/train_ycount[key]

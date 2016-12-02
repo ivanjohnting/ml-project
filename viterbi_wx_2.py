@@ -57,7 +57,10 @@ def viterbi(emission_dict,transmission_dict,train_ycount,test):
 
 	order = []
 	order = sorted(train_ycount.keys())
+	order.reverse()
 	# print(order)
+
+	# order = ["O","B-neutral","B-positive","B-negative","I-neutral","I-positive","I-negative"]
 
 
 	pos = list1.index(max(list1))
@@ -83,6 +86,8 @@ def viterbi(emission_dict,transmission_dict,train_ycount,test):
 		tempt_path = path[-1:][0]
 		i = 0
 
+		b = 0
+
 		if x != []:
 			# tempt_path = path[-1:]
 
@@ -98,12 +103,15 @@ def viterbi(emission_dict,transmission_dict,train_ycount,test):
 
 				i = 0
 
-				for from_state in order:
+				try:
+					b = emission_dict[(x[0],next_state)]
 
-					try:
-						b = emission_dict[(x[0],next_state)]
-					except Exception:
-						b = unseen
+				except Exception:
+					# b = emission_dict["UNK123!@#",next_state]
+					b = unseen
+
+
+				for from_state in order:		
 
 					a = transmission_dict[(from_state,next_state)]
 
@@ -121,16 +129,18 @@ def viterbi(emission_dict,transmission_dict,train_ycount,test):
 
 		else:
 			i = 0
+			list4 = []
+
 			for next_state in order:
 				a = transmission_dict[(next_state,end)]
 				list4.append(tempt_path[i] * a)
 				i += 1
 
-			path.append(tempt_path)
+			# path.append(list4)
 
 			y_list	= []
 
-			pos = tempt_path.index(max(tempt_path))
+			pos = list4.index(max(list4))
 			y_list.append(order[pos])
 
 			for i in range(len(path_state)-1,0,-1):
@@ -148,7 +158,7 @@ def viterbi(emission_dict,transmission_dict,train_ycount,test):
 				y_star += word_list[i] + " " +  y_list[i] + "\n"
 				# y_star +=  y_list[i] + "\n"
 
-			entire_path.append(path)
+			entire_path.append(list4)
 			path = [first_state]
 
 			path_state = []
@@ -165,13 +175,13 @@ y_star,entire_path = viterbi(emission_dict,transmission_dict,train_ycount,test)
 
 
 f = open('test.txt', 'w',encoding = "utf8")
-data = str(entire_path)
+data = str(entire_path[0:10])
 f.write(data)
 f.close()
 
 
-for i in entire_path:
-	print(len(i))
+# for i in entire_path:
+# 	print(len(i))
 
 
 f = open('viterbi.out', 'w',encoding = "utf8")
